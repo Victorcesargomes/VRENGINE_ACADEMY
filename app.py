@@ -9,7 +9,7 @@ load_dotenv()
 # Cria instância do cliente OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-st.set_page_config(page_title="Veloso e Almeida - Serviços Acadêmicos", page_icon=":mortar_board:")
+st.set_page_config(page_title="VR Engine - Serviços Acadêmicos", page_icon=":mortar_board:")
 
 # CSS customizado para aplicar as cores da identidade visual e ajustar o campo de entrada
 st.markdown("""
@@ -76,9 +76,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Exibe o logo na barra lateral
-st.sidebar.image("logoo-removebg-preview.png", use_container_width=True)
+st.sidebar.image("loogo.png", use_container_width=True)
 
-st.sidebar.markdown("### Veloso e Almeida - Serviços Acadêmicos")
+st.sidebar.markdown("### VR ENGINE - Serviços Acadêmicos")
 st.sidebar.markdown("**Consultoria acadêmica, mentoria, escrita acadêmica e serviços educacionais.**")
 
 # Seleção do tipo de serviço
