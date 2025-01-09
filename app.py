@@ -4,7 +4,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv()
+
 
 # Cria instância do cliente OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
