@@ -139,18 +139,30 @@ def pagina_chat(servico_escolhido):
         with st.chat_message("assistant"):
             st.write(resposta)
 
-    # Botão para download da conversa
-    if st.session_state.messages:
-        conversation_json = json.dumps(st.session_state.messages, ensure_ascii=False, indent=2)
-        st.download_button(
-            label="Baixar Conversa",
-            data=conversation_json,
-            file_name="conversa.json",
-            mime="application/json",
-        )
+    # Botões lado a lado: Download da conversa e Iniciar Nova Conversa
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.session_state.messages:
+            conversation_json = json.dumps(st.session_state.messages, ensure_ascii=False, indent=2)
+            st.download_button(
+                label="Baixar Conversa",
+                data=conversation_json,
+                file_name="conversa.json",
+                mime="application/json",
+            )
+
+    with col2:
+        if st.button("Iniciar Nova Conversa"):
+            st.session_state.clear()  # Limpa o estado da sessão
+            st.session_state["new_conversation"] = True  # Sinaliza que deve reiniciar
 
 # Função principal
 def main():
+    if st.session_state.get("new_conversation", False):
+        st.session_state.clear()  # Reinicia todo o estado
+        st.session_state["new_conversation"] = False  # Reseta o gatilho
+
     servico_escolhido = sidebar()
     pagina_chat(servico_escolhido)
 
