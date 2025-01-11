@@ -1,12 +1,13 @@
 import os
 import json
 import streamlit as st
-
+#from dotenv import load_dotenv
 from openai import OpenAI
 
 
 
 # Cria instância do cliente OpenAI
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.set_page_config(page_title="VR Engine - Serviços Acadêmicos", page_icon=":mortar_board:")
@@ -16,25 +17,25 @@ st.markdown("""
 <style>
     /* Ajusta o fundo da página principal */
     .main, .block-container {
-        background-color: #003f3f; /* Verde escuro */
-        color: #ffffff; /* Texto branco */
+        background-color: #e0e0de; /* Fundo cinza claro */
+        color: #000000; /* Texto preto */
     }
     
     /* Ajusta a barra lateral */
     .css-1cypcdb.e1fqkh3o3, .css-1cypcdb.e1fqkh3o1 {
-        background-color: #003f3f !important;
-        color: #ffffff !important;
+        background-color: #dedfdc !important;
+        color: #000000 !important;
     }
     
-    /* Títulos em dourado */
+    /* Títulos em preto */
     h1, h2, h3, h4, h5, h6 {
-        color: #D4AF37; /* Dourado */
+        color: #000000;
     }
 
     /* Mensagem do usuário */
     .stChatMessage.user {
-        background-color: #D4AF37 !important; /* Dourado */
-        color: #003f3f !important; /* Texto em verde escuro */
+        background-color: #dbdbd9 !important;
+        color: #000000 !important;
         border-radius: 10px;
         padding: 10px;
         margin-bottom: 10px;
@@ -42,9 +43,9 @@ st.markdown("""
 
     /* Mensagem do assistente */
     .stChatMessage.assistant {
-        background-color: #ffffff !important; /* Fundo branco */
-        color: #000000 !important; /* Texto preto */
-        border: 1px solid #D4AF37; /* Borda dourada */
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #dedfdc;
         border-radius: 10px;
         padding: 10px;
         margin-bottom: 10px;
@@ -54,7 +55,7 @@ st.markdown("""
     .stChatInput {
         background-color: #ffffff !important;
         color: #000000 !important;
-        border: 1px solid #D4AF37;
+        border: 1px solid #dbdbd9;
         border-radius: 5px;
     }
 
@@ -70,10 +71,11 @@ st.markdown("""
 
     /* Ajusta rótulos, textos secundários etc. */
     .css-1offfwp p, .css-1vgnld6 {
-        color: #ffffff !important;
+        color: #000000 !important;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 # Exibe o logo na barra lateral
 st.sidebar.image("loogo.png", use_container_width=True)
